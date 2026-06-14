@@ -36,7 +36,6 @@ public class SplashManager : MonoBehaviour
             Value.text = (int)ValueBar + "%";
             if(FillingBar.fillAmount == 1)
             {
-               // Debug.Log("Game Loaded");
                 GameLoaded = true;
             }
         }

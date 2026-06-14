@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "119536262468",
+    "project_id": "survivorio-b0c6e",
+    "storage_bucket": "survivorio-b0c6e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119536262468:android:90835b4b3038f384e94b11",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.SurvivoIO"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119536262468-1coahgi6p7748srtshrulmaq21nltrjf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.DefaultCompany.SurvivoIO",
+            "certificate_hash": "534114af443f6d05e3f879dc515f3f64687260f3"
+          }
+        },
+        {
+          "client_id": "119536262468-54ns270348bo2r0958euu0621dabks7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi8zc-eAlK6lQsN0lK-BxOsUa-mhkWoBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119536262468-54ns270348bo2r0958euu0621dabks7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
