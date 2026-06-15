@@ -1,7 +1,4 @@
-﻿using System;
-using Firebase;
-using Firebase.Auth;
-using Firebase.Extensions;
+﻿using Firebase.Auth;
 using Google;
 using UnityEngine;
 
@@ -12,7 +9,6 @@ public class GoogleLogin : MonoBehaviour
 	// Lấy từ Firebase Console
 	private string webClientId =
 		"119536262468-54ns270348bo2r0958euu0621dabks7c.apps.googleusercontent.com";
-
 	private string idToken;
 	private bool errorMessage;
 	private void Start()
@@ -26,7 +22,6 @@ public class GoogleLogin : MonoBehaviour
 			RequestEmail = true
 		};
 	}
-
 	public void SignInWithGoogle()
 	{
 		Debug.Log("Step 1");
@@ -47,7 +42,6 @@ public class GoogleLogin : MonoBehaviour
 		//	OnGoogleAuthenticated(task);
 		//});
 	}
-
 	private void OnGoogleAuthenticated(
 		System.Threading.Tasks.Task<GoogleSignInUser> task)
 	{
@@ -90,7 +84,6 @@ public class GoogleLogin : MonoBehaviour
 				Debug.Log(result.User.DisplayName);
 			});
 	}
-
 	public void SignOut()
 	{
 		auth.SignOut();
