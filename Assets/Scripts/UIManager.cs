@@ -178,3 +178,11 @@ public class UIManager : MonoBehaviour
         Manager.ResumeBtn();
     }
 }
+public enum PanelType
+{
+	Shop,
+	Equipement,
+	Home,
+	Death,
+	Evolve
+}

@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class AnonymousLogin : MonoBehaviour
 {
 	private FirebaseAuth auth;
-
-
 	public void InitializeFirebase()
 	{
 		auth = FirebaseAuth.DefaultInstance;

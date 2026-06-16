@@ -7651,7 +7651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &146554745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27498,10 +27498,10 @@ RectTransform:
   - {fileID: 2092438679}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -168.2772}
-  m_SizeDelta: {x: 189.2, y: 168.2772}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &549029202
 MonoBehaviour:
@@ -27587,7 +27587,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 575204137}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
-        m_MethodName: CheckFirst
+        m_MethodName: ShopButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28641,6 +28641,11 @@ MonoBehaviour:
   LogCenter: {fileID: 971603096}
   LogSecond: {fileID: 324563958}
   LogThird: {fileID: 171079655}
+  ShopLogo: {fileID: 300458932}
+  EquipementLogo: {fileID: 48216844}
+  HomeLogo: {fileID: 971603100}
+  DeathLogo: {fileID: 324563960}
+  EvolveLogo: {fileID: 171079657}
   LockEvolve: {fileID: 1174274608}
   LockShope: {fileID: 2092438678}
   LockEquipement: {fileID: 1344046103}
@@ -37042,7 +37047,7 @@ MonoBehaviour:
   Bool: {fileID: 1858125658}
   Level: {fileID: 189845735}
   Weapons: {fileID: 1858125659}
-  Mecanique: {fileID: 0}
+  Mecanique: {fileID: 752338032}
   Player: {fileID: 1177642138}
   HelthUI: {fileID: 1121717384}
   LevelLocalisation: {fileID: 1205708671}
@@ -54152,10 +54157,10 @@ RectTransform:
   - {fileID: 1225518380}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 701.6, y: -168.2772}
-  m_SizeDelta: {x: 189.2, y: 168.2772}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1077430634
 MonoBehaviour:
@@ -54241,7 +54246,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 575204137}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
-        m_MethodName: CheckSecond
+        m_MethodName: DeathButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -60421,7 +60426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1179134440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -88018,10 +88023,10 @@ RectTransform:
   - {fileID: 1344046104}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 189.2, y: -168.2772}
-  m_SizeDelta: {x: 189.2, y: 168.2772}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1753680005
 MonoBehaviour:
@@ -88107,7 +88112,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 575204137}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
-        m_MethodName: CheckFirstMinse
+        m_MethodName: EquipmentButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -92929,7 +92934,7 @@ GameObject:
   - component: {fileID: 1865707745}
   - component: {fileID: 1865707747}
   m_Layer: 5
-  m_Name: Battle
+  m_Name: Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92951,10 +92956,10 @@ RectTransform:
   - {fileID: 569302713}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 378.4, y: -168.2772}
-  m_SizeDelta: {x: 323.2, y: 168.2772}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1865707745
 MonoBehaviour:
@@ -93040,7 +93045,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 575204137}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
-        m_MethodName: CheckCenter
+        m_MethodName: HomeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -98512,10 +98517,10 @@ RectTransform:
   - {fileID: 1174274609}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 890.8, y: -168.2772}
-  m_SizeDelta: {x: 189.2, y: 168.2772}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1980223015
 MonoBehaviour:
@@ -98601,7 +98606,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 575204137}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
-        m_MethodName: CheckThird
+        m_MethodName: EvolveButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -103749,7 +103754,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1525222009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.48839974}
+  m_AnchorMin: {x: 0, y: 0.3764872}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -104025,7 +104030,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2093068605}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.51160026
+  m_Size: 0.6235128
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

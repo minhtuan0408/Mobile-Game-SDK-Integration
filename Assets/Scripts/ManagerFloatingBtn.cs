@@ -23,7 +23,14 @@ public class ManagerFloatingBtn : MonoBehaviour
     public GameObject LogSecond;
     public GameObject LogThird;
 
-    [Header("Lock Icon")]
+    [Header("New Logo Manager - anim")]
+    public Animator ShopLogo;
+	public Animator EquipementLogo;
+	public Animator HomeLogo;
+	public Animator DeathLogo;
+	public Animator EvolveLogo;
+
+	[Header("Lock Icon")]
     public GameObject LockEvolve;
     public GameObject LockShope;
     public GameObject LockEquipement;
@@ -57,76 +64,81 @@ public class ManagerFloatingBtn : MonoBehaviour
 
     void Awake()
     {
-
-    }
+		currentPanel = PanelType.Home;
+	}
     private void OnEnable()
     {
-        LogCenter.GetComponent<Animator>().Play("VectorBattleBack");
-    }
+        //LogCenter.GetComponent<Animator>().Play("VectorBattleBack");
+        HomeButton();
+
+	}
     void Start()
     {
-        BtnCenter.onClick.Invoke();
-        Evolvebtn.onClick.Invoke();
-        shopbtn.onClick.Invoke();
-        equipementbtn.onClick.Invoke();
-        deathbtn.onClick.Invoke();
-        BtnCenter.onClick.Invoke();
-        shopbtn.onClick.Invoke();
-        LogCenter.GetComponent<Animator>().Play("VectorBattleBack");
-        CheckFirsts();
-    }
+		//BtnCenter.onClick.Invoke();
+		//Evolvebtn.onClick.Invoke();
+		//shopbtn.onClick.Invoke();
+		//equipementbtn.onClick.Invoke();
+		//deathbtn.onClick.Invoke();
+		//BtnCenter.onClick.Invoke();
+		//shopbtn.onClick.Invoke();
+		//LogCenter.GetComponent<Animator>().Play("VectorBattleBack");
+		//CheckFirsts();
+
+		SetUpButton();
+	}
+
     void Update()
     {
-        if(Evolve == false)
-        {
-            LockEvolve.SetActive(true);
-            LogThird.SetActive(false);
-            TextThird.SetActive(false);
-        }
-        else
-        {
-            LockEvolve.SetActive(false);
-            LogThird.SetActive(true);
-        }
-        if(Shop == false)
-        {
-            LockShope.SetActive(true);
-            LogFirst.SetActive(false);
-            TextFirst.SetActive(false);
-        }
-        else
-        {
-            LockShope.SetActive(false);
-            LogFirst.SetActive(true);
-        }
-        if(Equipement == false)
-        {
-            LockEquipement.SetActive(true);
-            LogFirstMinse.SetActive(false);
-        }
-        else
-        {
-            LockEquipement.SetActive(false);
-            LogFirstMinse.SetActive(true);
-        }
-        if(Death == false)
-        {
-            LockDeath.SetActive(true);
-            LogSecond.SetActive(false);
-        }
-        else
-        {
-            LockDeath.SetActive(false);
-            LogSecond.SetActive(true);
-        }
-        CheckActive();
+        //if(Evolve == false)
+        //{
+        //    LockEvolve.SetActive(true);
+        //    LogThird.SetActive(false);
+        //    TextThird.SetActive(false);
+        //}
+        //else
+        //{
+        //    LockEvolve.SetActive(false);
+        //    LogThird.SetActive(true);
+        //}
+        //if(Shop == false)
+        //{
+        //    LockShope.SetActive(true);
+        //    LogFirst.SetActive(false);
+        //    TextFirst.SetActive(false);
+        //}
+        //else
+        //{
+        //    LockShope.SetActive(false);
+        //    LogFirst.SetActive(true);
+        //}
+        //if(Equipement == false)
+        //{
+        //    LockEquipement.SetActive(true);
+        //    LogFirstMinse.SetActive(false);
+        //}
+        //else
+        //{
+        //    LockEquipement.SetActive(false);
+        //    LogFirstMinse.SetActive(true);
+        //}
+        //if(Death == false)
+        //{
+        //    LockDeath.SetActive(true);
+        //    LogSecond.SetActive(false);
+        //}
+        //else
+        //{
+        //    LockDeath.SetActive(false);
+        //    LogSecond.SetActive(true);
+        //}
+        //CheckActive();
     }
-
-    void CheckActive()
+	#region Button Click
+	void CheckActive()
     {
 
     }
-    void CheckFirsts()
+	void CheckFirsts()
     {
         if (FirstBtn.GetComponent<Image>().sprite == Inactive && Shop == true)
         {
@@ -359,4 +371,210 @@ public class ManagerFloatingBtn : MonoBehaviour
             CenterBtn.GetComponent<Image>().sprite = Inactive;
         }
     }
+
+	#endregion
+
+	private void SetUpButton()
+	{
+		if (Evolve == false)
+		{
+			LockEvolve.SetActive(true);
+			LogThird.SetActive(false);
+			TextThird.SetActive(false);
+		}
+		else
+		{
+			LockEvolve.SetActive(false);
+			LogThird.SetActive(true);
+		}
+		if (Shop == false)
+		{
+			LockShope.SetActive(true);
+			LogFirst.SetActive(false);
+			TextFirst.SetActive(false);
+		}
+		else
+		{
+			LockShope.SetActive(false);
+			LogFirst.SetActive(true);
+		}
+		if (Equipement == false)
+		{
+			LockEquipement.SetActive(true);
+			LogFirstMinse.SetActive(false);
+		}
+		else
+		{
+			LockEquipement.SetActive(false);
+			LogFirstMinse.SetActive(true);
+		}
+		if (Death == false)
+		{
+			LockDeath.SetActive(true);
+			LogSecond.SetActive(false);
+		}
+		else
+		{
+			LockDeath.SetActive(false);
+			LogSecond.SetActive(true);
+		}
+
+	}
+	#region New Button Click
+	private PanelType currentPanel = PanelType.Home;
+	public void ShopButton()
+    {
+        PlayAnim(false, currentPanel);
+        OpenPanel(PanelType.Shop);
+		currentPanel = PanelType.Shop;
+		PlayAnim(true, currentPanel);
+
+	}
+    public void EquipmentButton()
+    {
+		PlayAnim(false, currentPanel);
+		currentPanel = PanelType.Equipement;
+		OpenPanel(currentPanel);
+		PlayAnim(true, currentPanel);
+	}
+    public void HomeButton()
+    {
+		PlayAnim(false, currentPanel);
+		currentPanel = PanelType.Home;
+		OpenPanel(currentPanel);
+		PlayAnim(true, currentPanel);
+	}
+    public void DeathButton()
+    {
+		PlayAnim(false, currentPanel);
+		currentPanel = PanelType.Death;
+		OpenPanel(currentPanel);
+		PlayAnim(true, currentPanel);
+	}
+    public void EvolveButton()
+    {
+		PlayAnim(false, currentPanel);
+		currentPanel = PanelType.Evolve;
+		OpenPanel(currentPanel);
+		PlayAnim(true, currentPanel);
+	}
+
+	private void OpenPanel(PanelType type)
+    {
+        CloseAllPanel();
+		switch (type) 
+        {
+            case PanelType.Shop:
+				Manager.ScreenShop.SetActive(true);
+				break;
+            case PanelType.Equipement:
+				Manager.ScreenEquipement.SetActive(true);
+				break ;
+            case PanelType.Home:
+                Manager.ScreenHome.SetActive(true);
+				break ;
+            case PanelType.Death:
+                Manager.ScreenDeath.SetActive(true);
+				break;
+            case PanelType.Evolve:
+                Manager.ScreenVolve.SetActive(true);
+				break;
+            default:
+				Manager.ScreenHome.SetActive(true);
+				CenterBtn.GetComponent<Image>().sprite = Active;
+				break;
+		}
+	}
+    private void PlayAnim(bool On, PanelType type)
+    {
+        if (type == PanelType.Shop)
+        {
+            if (!On)
+            {
+				ShopLogo.Play("VectorBattle");
+				FirstBtn.GetComponent<Image>().sprite = Inactive;
+			}
+            else
+            {
+				ShopLogo.Play("VectorBattleBack");
+				FirstBtn.GetComponent<Image>().sprite = Active;
+				TextFirst.SetActive(true);
+			}
+		}
+        else if (type == PanelType.Equipement)
+        {
+			if (!On)
+            {
+				FirstMinseBtn.GetComponent<Image>().sprite = Inactive;
+				EquipementLogo.Play("VectorBattle");
+			}
+            else
+            {
+				EquipementLogo.Play("VectorBattleBack");
+				FirstMinseBtn.GetComponent<Image>().sprite = Active;
+				TextFirstMinse.SetActive(true);
+			}
+		}
+        else if (type == PanelType.Home)
+        {
+			if (!On)
+            {
+				CenterBtn.GetComponent<Image>().sprite = Inactive;
+				HomeLogo.Play("VectorBattle");
+			}
+            else 
+            {
+				HomeLogo.Play("VectorBattleBack");
+				CenterBtn.GetComponent<Image>().sprite = Active;
+				TextCenter.SetActive(true);
+			}
+		}
+        else if (type == PanelType.Death) 
+        {
+			if (!On) 
+            {
+				SecondBtn.GetComponent<Image>().sprite = Inactive;
+				DeathLogo.Play("VectorBattle");
+			}
+            else 
+            {
+				DeathLogo.Play("VectorBattleBack");
+				SecondBtn.GetComponent<Image>().sprite = Active;
+				TextSecond.SetActive(true);
+			}
+		}
+        else if (type == PanelType.Evolve)
+        {
+			if (!On) 
+            {
+				ThirdBtn.GetComponent<Image>().sprite = Inactive;
+				EvolveLogo.Play("VectorBattle");
+			}
+            else 
+            {
+				EvolveLogo.Play("VectorBattleBack");
+				ThirdBtn.GetComponent<Image>().sprite = Active;
+				TextThird.SetActive(true);
+			}
+        }
+        else
+        {
+            Debug.Log("Nothing");
+        }
+    }
+    private void CloseAllPanel()
+    {
+		Manager.ScreenHome.SetActive(false);
+		Manager.ScreenShop.SetActive(false);
+		Manager.ScreenEquipement.SetActive(false);
+		Manager.ScreenDeath.SetActive(false);
+		Manager.ScreenVolve.SetActive(false);
+
+		TextCenter.SetActive(false);
+		TextFirstMinse.SetActive(false);
+		TextSecond.SetActive(false);
+		TextThird.SetActive(false);
+		TextFirst.SetActive(false);
+	}
+	#endregion
 }

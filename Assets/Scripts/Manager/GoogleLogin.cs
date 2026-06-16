@@ -5,7 +5,6 @@ using UnityEngine;
 public class GoogleLogin : MonoBehaviour
 {
 	private FirebaseAuth auth;
-
 	// Lấy từ Firebase Console
 	private string webClientId =
 		"119536262468-54ns270348bo2r0958euu0621dabks7c.apps.googleusercontent.com";
