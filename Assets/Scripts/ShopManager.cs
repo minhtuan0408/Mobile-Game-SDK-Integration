@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,4 +47,28 @@ public class ShopManager : MonoBehaviour
     {
         btn5.interactable = false;
     }
+	public void OpenNormalChest()
+	{
+		EquipmentData reward = EquipmentManager.Instance.GetRandomEquipment();
+
+		if (reward == null)
+			return;
+
+		Debug.Log($"Nhận được: {reward.EquipmentName}");
+
+		// Save Firebase
+		EquipmentManager.Instance.SaveEquipment(reward);
+	}
+
+	public void OpenRareChest()
+	{
+		EquipmentData reward = EquipmentManager.Instance.GetRandomEquipment();
+
+		if (reward == null)
+			return;
+
+		Debug.Log($"Nhận được: {reward.EquipmentName}");
+
+		EquipmentManager.Instance.SaveEquipment(reward);
+	}
 }

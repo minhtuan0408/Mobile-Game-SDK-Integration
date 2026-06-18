@@ -1,34 +1,67 @@
 using Firebase.Auth;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoginUI : MonoBehaviour
 {
 	[SerializeField] private GameObject loginPanel;
 
+	[SerializeField] private GameObject loginButton;
+	[SerializeField] private GameObject playButton;
+
+	private void Start()
+	{
+		RefreshUI();
+	}
+
 	private void OnEnable()
 	{
-		LoginManager.Instance.OnLoginSuccess += HandleLoginSuccess;
+		if (LoginManager.Instance != null)
+		{
+			LoginManager.Instance.OnLoginSuccess += HandleLoginSuccess;
+		}
 	}
 
 	private void OnDisable()
 	{
-		LoginManager.Instance.OnLoginSuccess -= HandleLoginSuccess;
+		if (LoginManager.Instance != null)
+		{
+			LoginManager.Instance.OnLoginSuccess -= HandleLoginSuccess;
+		}
+	}
+
+	private void RefreshUI()
+	{
+		bool loggedIn = LoginManager.Instance != null &&
+						LoginManager.Instance.IsLoggedIn;
+
+		loginButton.SetActive(!loggedIn);
+		playButton.SetActive(loggedIn);
 	}
 
 	private void HandleLoginSuccess(FirebaseUser user)
 	{
-		loginPanel.SetActive(false);
-
-		SceneManager.LoadScene("GamePlay");
+		RefreshUI();
 	}
 
 	public void OnClickSignInAnonymously()
 	{
 		LoginManager.Instance.AnonymousLogin.SignInAnonymously();
 	}
+
 	public void OnClickSignInWithGoogle()
 	{
 		LoginManager.Instance.GoogleLogin.SignInWithGoogle();
+	}
+
+	public void OnClickLogout()
+	{
+		LoginManager.Instance.Logout();
+		RefreshUI();
+	}
+
+	public void PlayButton()
+	{
+		SceneManager.LoadScene("GamePlay");
 	}
 }

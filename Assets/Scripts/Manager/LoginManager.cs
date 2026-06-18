@@ -13,6 +13,8 @@ public class LoginManager : MonoBehaviour
 	public string UserId => CurrentUser?.UserId;
 	public event Action<FirebaseUser> OnLoginSuccess;
 	public event Action<string> OnLoginFailed;
+
+	public bool IsLoggedIn => CurrentUser != null;
 	private void Awake()
 	{
 		if (Instance != null && Instance != this)
@@ -25,6 +27,7 @@ public class LoginManager : MonoBehaviour
 		GoogleLogin = GetComponent<GoogleLogin>();
 		AnonymousLogin = GetComponent<AnonymousLogin>();
 		Initialize();
+		CheckExistingLogin();
 	}
 	private void Initialize()
 	{
@@ -45,5 +48,20 @@ public class LoginManager : MonoBehaviour
 		FirebaseAuth.DefaultInstance.SignOut();
 		CurrentUser = null;
 		IdToken = null;
+		Debug.Log("Đã log out");
 	}
+	private void CheckExistingLogin()
+	{
+		FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
+
+		if (user != null)
+		{
+			CurrentUser = user;
+
+			Debug.Log($"Auto Login: {user.UserId}");
+
+			OnLoginSuccess?.Invoke(user);
+		}
+	}
+
 }

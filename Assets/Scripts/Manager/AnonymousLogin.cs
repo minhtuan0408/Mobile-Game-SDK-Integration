@@ -3,6 +3,7 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using UnityEngine.SceneManagement;
+using Firebase.Extensions;
 
 public class AnonymousLogin : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class AnonymousLogin : MonoBehaviour
 	}
 	public void SignInAnonymously()
 	{
+		Debug.Log("auth = " + auth);
+		Debug.Log("current user = " + auth?.CurrentUser);
 		if (auth == null)
 		{
 			Debug.LogError("FirebaseAuth not initialized!");
@@ -24,8 +27,10 @@ public class AnonymousLogin : MonoBehaviour
 			SceneManager.LoadScene("GamePlay");
 			return;
 		}
-		auth.SignInAnonymouslyAsync().ContinueWith(task =>
+		auth.SignInAnonymouslyAsync().ContinueWithOnMainThread(task =>
 		{
+			Debug.Log("Callback fired");
+
 			if (task.IsCanceled)
 			{
 				Debug.LogError("Canceled");
@@ -38,13 +43,12 @@ public class AnonymousLogin : MonoBehaviour
 				return;
 			}
 
-			var result = task.Result;
+			FirebaseUser user = task.Result.User;
 
-			FirebaseUser user = result.User;
-
-			LoginManager.Instance.LoginSuccess(user, null);
 			Debug.Log("Anonymous login success!");
 			Debug.Log("User ID: " + user.UserId);
+
+			LoginManager.Instance.LoginSuccess(user, null);
 		});
 	}
 
