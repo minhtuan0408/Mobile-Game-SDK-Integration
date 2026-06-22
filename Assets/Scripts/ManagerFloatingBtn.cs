@@ -424,6 +424,8 @@ public class ManagerFloatingBtn : MonoBehaviour
 	private PanelType currentPanel = PanelType.Home;
 	public void ShopButton()
     {
+        if (currentPanel == PanelType.Shop)
+            return;
         PlayAnim(false, currentPanel);
         OpenPanel(PanelType.Shop);
 		currentPanel = PanelType.Shop;
@@ -432,6 +434,8 @@ public class ManagerFloatingBtn : MonoBehaviour
 	}
     public void EquipmentButton()
     {
+		if (currentPanel == PanelType.Equipement)
+			return;
 		PlayAnim(false, currentPanel);
 		currentPanel = PanelType.Equipement;
 		OpenPanel(currentPanel);
@@ -439,6 +443,8 @@ public class ManagerFloatingBtn : MonoBehaviour
 	}
     public void HomeButton()
     {
+		if (currentPanel == PanelType.Home)
+			return;
 		PlayAnim(false, currentPanel);
 		currentPanel = PanelType.Home;
 		OpenPanel(currentPanel);
@@ -446,6 +452,8 @@ public class ManagerFloatingBtn : MonoBehaviour
 	}
     public void DeathButton()
     {
+		if (currentPanel == PanelType.Death)
+			return;
 		PlayAnim(false, currentPanel);
 		currentPanel = PanelType.Death;
 		OpenPanel(currentPanel);
@@ -453,6 +461,8 @@ public class ManagerFloatingBtn : MonoBehaviour
 	}
     public void EvolveButton()
     {
+		if (currentPanel == PanelType.Evolve)
+			return;
 		PlayAnim(false, currentPanel);
 		currentPanel = PanelType.Evolve;
 		OpenPanel(currentPanel);

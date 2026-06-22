@@ -69,7 +69,6 @@ public class EquipmentManager : MonoBehaviour
 			1);
 	}
 
-
 	public void LoadInventory()
 	{
 		string userId = LoginManager.Instance.UserId;
@@ -133,11 +132,17 @@ public class EquipmentManager : MonoBehaviour
 
 		LoadEquipped();
 	}
-	public void Unequip(EquipmentType type)
+	public void Unequip(string instanceId)
 	{
+		EquipmentInstance item =
+			GetEquipmentInstance(instanceId);
+
+		if (item == null)
+			return;
+
 		FirebaseDataManager.Instance.UnequipItem(
 			LoginManager.Instance.UserId,
-			type);
+			item.Data.EquipmentType);
 
 		LoadEquipped();
 	}
@@ -173,4 +178,5 @@ public class EquipmentInstance
 	public string InstanceId;
 	public EquipmentData Data;
 	public int Level;
+	public bool IsEquipped;
 }

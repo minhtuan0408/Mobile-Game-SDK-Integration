@@ -24,14 +24,7 @@ public class FirebaseDataManager : MonoBehaviour
 		}
 	}
 	#region Level
-	public void SaveLevel(string userId, int level)
-	{
-		reference.Child("users")
-				 .Child(userId)
-				 .Child("level")
-				 .SetValueAsync(level);
-	}
-	public void LoadLevel(string userId, Action<int> callback)
+	public void LoadLevels(string userId,Action<Dictionary<int, bool>> callback)
 	{
 		reference.Child("users")
 				 .Child(userId)
@@ -39,10 +32,58 @@ public class FirebaseDataManager : MonoBehaviour
 				 .GetValueAsync()
 				 .ContinueWithOnMainThread(task =>
 				 {
+					 Dictionary<int, bool> levels = new();
+
 					 if (task.IsCompleted && task.Result.Exists)
 					 {
-						 int level = Convert.ToInt32(task.Result.Value);
-						 callback?.Invoke(level);
+						 foreach (var child in task.Result.Children)
+						 {
+							 levels.Add(
+								 int.Parse(child.Key),
+								 Convert.ToBoolean(child.Value));
+						 }
+
+						 callback?.Invoke(levels);
+					 }
+					 else
+					 {
+						 Dictionary<string, object> defaultLevels = new();
+
+						 for (int i = 1; i <= 6; i++)
+						 {
+							 defaultLevels[i.ToString()] = (i == 1);
+
+							 levels.Add(i, i == 1);
+						 }
+
+						 reference.Child("users")
+								  .Child(userId)
+								  .Child("level")
+								  .SetValueAsync(defaultLevels);
+						 callback?.Invoke(levels);
+					 }
+				 });
+	}
+	public void UnlockLevel(string userId, int level)
+	{
+		reference.Child("users")
+				 .Child(userId)
+				 .Child("level")
+				 .Child(level.ToString())
+				 .SetValueAsync(true);
+	}
+	public void GetCurrentLevel(string userId,Action<int> callback)
+	{
+		reference.Child("users")
+				 .Child(userId)
+				 .Child("currentLevel")
+				 .GetValueAsync()
+				 .ContinueWithOnMainThread(task =>
+				 {
+					 if (task.IsCompleted && task.Result.Exists)
+					 {
+						 callback?.Invoke(
+							 Convert.ToInt32(task.Result.Value));
 					 }
 					 else
 					 {
@@ -50,29 +91,13 @@ public class FirebaseDataManager : MonoBehaviour
 					 }
 				 });
 	}
-	public void UnlockNextLevel(string userId, int currentLevel)
+
+	public void SetCurrentLevel(string userId, int level)
 	{
 		reference.Child("users")
-			.Child(userId)
-			.Child("level")
-			.GetValueAsync()
-			.ContinueWithOnMainThread(task =>
-			{
-				if (task.IsCompleted && task.Result.Exists)
-				{
-					int savedLevel = Convert.ToInt32(task.Result.Value);
-
-					if (savedLevel <= currentLevel)
-					{
-						reference.Child("users")
-								 .Child(userId)
-								 .Child("level")
-								 .SetValueAsync(currentLevel + 1);
-
-						Debug.Log($"Unlocked Level {currentLevel + 1}");
-					}
-				}
-			});
+				 .Child(userId)
+				 .Child("currentLevel")
+				 .SetValueAsync(level);
 	}
 	#endregion
 
@@ -205,6 +230,9 @@ public class FirebaseDataManager : MonoBehaviour
 				 });
 	}
 	#endregion
+
+
+
 }
 [System.Serializable]
 public class EquipmentSaveData

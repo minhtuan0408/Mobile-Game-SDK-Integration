@@ -16,12 +16,16 @@ public class EquipmentTile : MonoBehaviour, IPointerClickHandler
 	public int Level;
 	public EquipmentType EquipmentType;
 	public EquipmentRarity Rarity;
+	public bool isEquip;
 	public void Init(string instanceId, EquipmentData data, int level)
 	{
 		ResetAll();
+		InstanceId = instanceId;
+
 		Level = level;
 		LevelText.text = $"Lv.{level}";
 		EquipmentData = data;
+
 		SetUpLogoTypeIcons(data.EquipmentType);
 		SetUpRarityIcons(data.Rarity);
 		Icon.sprite = data.Icon;
@@ -29,8 +33,14 @@ public class EquipmentTile : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		EquipmentManager.Instance.Equip(InstanceId);
-		Debug.Log("Click");
+		if (isEquip)
+		{
+			EquipmentManager.Instance.Unequip(InstanceId);
+		}
+		else
+		{
+			EquipmentManager.Instance.Equip(InstanceId);
+		}
 	}
 
 	public void SetUpLogoTypeIcons(EquipmentType type)

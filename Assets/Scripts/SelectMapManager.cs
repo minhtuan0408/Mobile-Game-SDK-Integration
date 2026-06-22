@@ -45,107 +45,107 @@ public class SelectMapManager : MonoBehaviour
     }
     void Update()
     {
-        if(ManagerValue.Number == 0 && Lev1 == false)
-        {
-            P1.color = Normal;
-            M1();
-            P2.color = Black;
-            P3.color = Black;
-            P4.color = Black;
-            P5.color = Black;
-            P6.color = Black;
-            Lev1 = true;
-            Lev2 = false;
-            Lev3 = false;
-            Lev4 = false;
-            Lev5 = false;
-            Lev6 = false;
-        }
+        //if(ManagerValue.Number == 0 && Lev1 == false)
+        //{
+        //    P1.color = Normal;
+        //    M1();
+        //    P2.color = Black;
+        //    P3.color = Black;
+        //    P4.color = Black;
+        //    P5.color = Black;
+        //    P6.color = Black;
+        //    Lev1 = true;
+        //    Lev2 = false;
+        //    Lev3 = false;
+        //    Lev4 = false;
+        //    Lev5 = false;
+        //    Lev6 = false;
+        //}
 
-        if (ManagerValue.Number == 1 && Lev2 == false)
-        {
-            P2.color = Normal;
-            M2();
-            P1.color = Black;
-            P3.color = Black;
-            P4.color = Black;
-            P5.color = Black;
-            P6.color = Black;
-            Lev1 = false;
-            Lev2 = true;
-            Lev3 = false;
-            Lev4 = false;
-            Lev5 = false;
-            Lev6 = false;
-        }
+        //if (ManagerValue.Number == 1 && Lev2 == false)
+        //{
+        //    P2.color = Normal;
+        //    M2();
+        //    P1.color = Black;
+        //    P3.color = Black;
+        //    P4.color = Black;
+        //    P5.color = Black;
+        //    P6.color = Black;
+        //    Lev1 = false;
+        //    Lev2 = true;
+        //    Lev3 = false;
+        //    Lev4 = false;
+        //    Lev5 = false;
+        //    Lev6 = false;
+        //}
 
-        if (ManagerValue.Number == 2 && Lev3 == false)
-        {
-            P3.color = Normal;
-            M3();
-            P1.color = Black;
-            P2.color = Black;
-            P4.color = Black;
-            P5.color = Black;
-            P6.color = Black;
-            Lev1 = false;
-            Lev2 = false;
-            Lev3 = true;
-            Lev4 = false;
-            Lev5 = false;
-            Lev6 = false;
-        }
+        //if (ManagerValue.Number == 2 && Lev3 == false)
+        //{
+        //    P3.color = Normal;
+        //    M3();
+        //    P1.color = Black;
+        //    P2.color = Black;
+        //    P4.color = Black;
+        //    P5.color = Black;
+        //    P6.color = Black;
+        //    Lev1 = false;
+        //    Lev2 = false;
+        //    Lev3 = true;
+        //    Lev4 = false;
+        //    Lev5 = false;
+        //    Lev6 = false;
+        //}
 
-        if (ManagerValue.Number == 3 && Lev4 == false)
-        {
-            P4.color = Normal;
-            M4();
-            P1.color = Black;
-            P3.color = Black;
-            P2.color = Black;
-            P5.color = Black;
-            P6.color = Black;
-            Lev1 = false;
-            Lev2 = false;
-            Lev3 = false;
-            Lev4 = true;
-            Lev5 = false;
-            Lev6 = false;
-        }
+        //if (ManagerValue.Number == 3 && Lev4 == false)
+        //{
+        //    P4.color = Normal;
+        //    M4();
+        //    P1.color = Black;
+        //    P3.color = Black;
+        //    P2.color = Black;
+        //    P5.color = Black;
+        //    P6.color = Black;
+        //    Lev1 = false;
+        //    Lev2 = false;
+        //    Lev3 = false;
+        //    Lev4 = true;
+        //    Lev5 = false;
+        //    Lev6 = false;
+        //}
 
-        if (ManagerValue.Number == 4 && Lev5 == false)
-        {
-            P5.color = Normal;
-            M5();
-            P1.color = Black;
-            P2.color = Black;
-            P3.color = Black;
-            P4.color = Black;
-            P6.color = Black;
-            Lev1 = false;
-            Lev2 = false;
-            Lev3 = false;
-            Lev4 = false;
-            Lev5 = true;
-            Lev6 = false;
-        }
+        //if (ManagerValue.Number == 4 && Lev5 == false)
+        //{
+        //    P5.color = Normal;
+        //    M5();
+        //    P1.color = Black;
+        //    P2.color = Black;
+        //    P3.color = Black;
+        //    P4.color = Black;
+        //    P6.color = Black;
+        //    Lev1 = false;
+        //    Lev2 = false;
+        //    Lev3 = false;
+        //    Lev4 = false;
+        //    Lev5 = true;
+        //    Lev6 = false;
+        //}
 
-        if (ManagerValue.Number == 5 && Lev6 == false)
-        {
-            P6.color = Normal;
-            M6();
-            P2.color = Black;
-            P3.color = Black;
-            P4.color = Black;
-            P5.color = Black;
-            P1.color = Black;
-            Lev1 = false;
-            Lev2 = false;
-            Lev3 = false;
-            Lev4 = false;
-            Lev5 = false;
-            Lev6 = true;
-        }
+        //if (ManagerValue.Number == 5 && Lev6 == false)
+        //{
+        //    P6.color = Normal;
+        //    M6();
+        //    P2.color = Black;
+        //    P3.color = Black;
+        //    P4.color = Black;
+        //    P5.color = Black;
+        //    P1.color = Black;
+        //    Lev1 = false;
+        //    Lev2 = false;
+        //    Lev3 = false;
+        //    Lev4 = false;
+        //    Lev5 = false;
+        //    Lev6 = true;
+        //}
 
     }
     void M1()

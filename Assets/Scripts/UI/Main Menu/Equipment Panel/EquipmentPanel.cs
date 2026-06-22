@@ -33,8 +33,8 @@ public class EquipmentPanel : MonoBehaviour
 	private void Refresh()
 	{
 		RefreshInventory();
+		RefreshEquipped();
 	}
-
 	private void RefreshInventory()
 	{
 		foreach (Transform child in MyEquipment)
@@ -44,9 +44,10 @@ public class EquipmentPanel : MonoBehaviour
 
 		foreach (var item in EquipmentManager.Instance.Inventory)
 		{
-			Debug.Log(item);
-			EquipmentTile tile =
-				Instantiate(tilePrefab, MyEquipment);
+			if (item.IsEquipped)
+				continue;
+			EquipmentTile tile = Instantiate(tilePrefab, MyEquipment);
+
 			Debug.Log(item.Data);
 			tile.Init(
 				item.InstanceId,
@@ -78,9 +79,7 @@ public class EquipmentPanel : MonoBehaviour
 		CreateEquippedTile(equipped.shoe, ShoeSlot);
 	}
 
-	private void CreateEquippedTile(
-	string instanceId,
-	Transform slot)
+	private void CreateEquippedTile(string instanceId,Transform slot)
 	{
 		if (string.IsNullOrEmpty(instanceId))
 			return;
@@ -93,7 +92,7 @@ public class EquipmentPanel : MonoBehaviour
 
 		EquipmentTile tile =
 			Instantiate(tilePrefab, slot);
-
+		tile.isEquip= true;
 		tile.Init(
 			item.InstanceId,
 			item.Data,
