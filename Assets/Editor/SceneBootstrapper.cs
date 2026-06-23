@@ -5,7 +5,7 @@ using UnityEngine;
 public class SceneBootstrapper
 {
 	// CHANGE THIS PATH to your actual Scene A path
-	const string SceneAPath = "Assets/Scenes/Bootstrap.unity";
+	const string SceneAPath = "Assets/Scenes/Loading.unity";
 
 	[MenuItem("Tools/Enable Always Start From Scene A")]
 	public static void EnableBoot()

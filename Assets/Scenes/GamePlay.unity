@@ -6746,7 +6746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &146554745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9359,12 +9359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2a73cafe0cdbf47b47425b3bf20537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level1: {fileID: 1320171832528862900, guid: 12f9ecb3a061b5d4492fd682e94f1f34, type: 3}
-  ManagerS: {fileID: 0}
-  Map: {fileID: 1222664084}
-  IconLevels: {fileID: 427792413}
-  Swip: {fileID: 2128703651}
-  ButtonsActive: {fileID: 157510239}
   Levels:
   - {fileID: 1320171832528862900, guid: 12f9ecb3a061b5d4492fd682e94f1f34, type: 3}
   - {fileID: 1320171832528862900, guid: aa97ba3ad55eb204eb2561a5a466d750, type: 3}
@@ -9372,6 +9366,7 @@ MonoBehaviour:
   - {fileID: 1320171832528862900, guid: 9923592712eb3a449a79aefc36e1e59c, type: 3}
   - {fileID: 1320171832528862900, guid: b88e6cb53850efb489a00ef7e9491e5b, type: 3}
   - {fileID: 1320171832528862900, guid: 66b3cae0033c33542bb67aa02671df67, type: 3}
+  Level1: {fileID: 1320171832528862900, guid: 12f9ecb3a061b5d4492fd682e94f1f34, type: 3}
 --- !u!1 &189989427
 GameObject:
   m_ObjectHideFlags: 0
@@ -15391,55 +15386,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329389603}
   m_CullTransparentMesh: 1
---- !u!1 &330195003
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 330195005}
-  - component: {fileID: 330195004}
-  m_Layer: 0
-  m_Name: AdsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &330195004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330195003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c07c6fb9ed837c41ab3bce4386860cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  androidAppKey: 
-  androidBannerAdUnitId: 
-  androidInterstitialAdUnitId: 
-  androidRewardAdUnitId: 
-  text: {fileID: 0}
---- !u!4 &330195005
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330195003}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 321.2888, y: 596.86487, z: -13.385019}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &335845298
 GameObject:
   m_ObjectHideFlags: 0
@@ -16066,7 +16012,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 330195004}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
         m_MethodName: ShowrewardVideo
         m_Mode: 1
@@ -19610,9 +19556,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 330195004}
-        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-        m_MethodName: ShowrewardVideo
+      - m_Target: {fileID: 1222664088}
+        m_TargetAssemblyTypeName: SelectMapPanel, Assembly-CSharp
+        m_MethodName: OnclickWatchAds
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21135,7 +21081,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 330195004}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
         m_MethodName: Showintertitial
         m_Mode: 1
@@ -23448,7 +23394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &517922385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24471,10 +24417,10 @@ RectTransform:
   - {fileID: 2092438679}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -168.2772}
+  m_SizeDelta: {x: 189.2, y: 168.2772}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &549029202
 MonoBehaviour:
@@ -48832,10 +48778,10 @@ RectTransform:
   - {fileID: 1225518380}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 701.6, y: -168.2772}
+  m_SizeDelta: {x: 189.2, y: 168.2772}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1077430634
 MonoBehaviour:
@@ -56957,7 +56903,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 330195004}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
         m_MethodName: ShowrewardVideo
         m_Mode: 1
@@ -79916,10 +79862,10 @@ RectTransform:
   - {fileID: 1344046104}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 189.2, y: -168.2772}
+  m_SizeDelta: {x: 189.2, y: 168.2772}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1753680005
 MonoBehaviour:
@@ -84160,10 +84106,10 @@ RectTransform:
   - {fileID: 569302713}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 378.4, y: -168.2772}
+  m_SizeDelta: {x: 323.2, y: 168.2772}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1865707745
 MonoBehaviour:
@@ -88862,10 +88808,10 @@ RectTransform:
   - {fileID: 1174274609}
   m_Father: {fileID: 575204135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 890.8, y: -168.2772}
+  m_SizeDelta: {x: 189.2, y: 168.2772}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1980223015
 MonoBehaviour:
@@ -91359,7 +91305,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 330195004}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
         m_MethodName: Showintertitial
         m_Mode: 1
@@ -92322,7 +92268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 330195004}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
         m_MethodName: Showintertitial
         m_Mode: 1
@@ -101243,6 +101189,5 @@ SceneRoots:
   - {fileID: 189845730}
   - {fileID: 1121729826}
   - {fileID: 1858125657}
-  - {fileID: 330195005}
   - {fileID: 234867902}
   - {fileID: 1791731789}

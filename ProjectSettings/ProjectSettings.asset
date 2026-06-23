@@ -874,11 +874,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: e6d21e3d-8ad1-40a6-ab3e-d4c566bd4c80
+  cloudProjectId: 7428c99f-251b-4ee0-9e70-b773a096b60a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Ads
-  organizationId: yebouzianiunityads
+  projectName: Survivor
+  organizationId: minhtuan040819
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

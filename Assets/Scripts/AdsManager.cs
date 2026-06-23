@@ -7,16 +7,19 @@ using UnityEngine;
 
 public class AdsManager : MonoBehaviour
 {
-	private static AdsManager instance;
+	public static AdsManager Instance;
 
 	private void Awake()
 	{
-		if (instance == null)
+		if (Instance == null)
 		{
-			instance = this;
+			Instance = this;
 			DontDestroyOnLoad(gameObject);
 		}
-;
+		else
+		{
+			Destroy(gameObject);
+		}
 	}
 	[Header("App key")]
 	[SerializeField] private string androidAppKey;
@@ -74,9 +77,6 @@ public class AdsManager : MonoBehaviour
 		}
 	}
 
-	[Header("Coins UI")]
-	[SerializeField] private TextMeshProUGUI text;
-
 	private void Start()
 	{
 		Debug.Log("LevelPlay Start");
@@ -95,8 +95,8 @@ public class AdsManager : MonoBehaviour
 	{
 		Debug.Log("LevelPlay Init Successfully");
 
-		CreateBannerAd();
-		CreateInterstitialAds();
+		//CreateBannerAd();
+		//CreateInterstitialAds();
 		CreateRewardedAd();
 	}
 
@@ -196,6 +196,7 @@ public class AdsManager : MonoBehaviour
 	#endregion
 
 	private LevelPlayRewardedAd RewardedAd;
+	private Action onRewardSuccess;
 	#region Rewarded Ads
 	private void CreateRewardedAd()
 	{
@@ -211,23 +212,34 @@ public class AdsManager : MonoBehaviour
 		// Optional
 		RewardedAd.OnAdClicked += RewardedOnAdClickedEvent;
 		RewardedAd.OnAdInfoChanged += RewardedOnAdInfoChangedEvent;
-	}
-	public void LoadRewardedAd()
-	{
-		RewardedAd.LoadAd();
 
+		RewardedAd.LoadAd();
 	}
-	public void ShowRewardedAd()
+	public void ShowRewardedAd(Action rewardCallback)
 	{
+		Debug.Log("Rewarded IsReady = " + RewardedAd.IsAdReady());
+
 		if (RewardedAd.IsAdReady())
 		{
+			onRewardSuccess = rewardCallback;
 			RewardedAd.ShowAd();
+			Debug.Log("Show Rewarded");
 		}
+		else
+		{
+			Debug.LogWarning("Rewarded not ready");
+		}
+	}	
+
+
+	void RewardedOnAdLoadedEvent(LevelPlayAdInfo adInfo)
+	{
+		Debug.Log("Rewarded Loaded");
 	}
-
-
-	void RewardedOnAdLoadedEvent(LevelPlayAdInfo adInfo) { }
-	void RewardedOnAdLoadFailedEvent(LevelPlayAdError error) { }
+	void RewardedOnAdLoadFailedEvent(LevelPlayAdError error)
+	{
+		Debug.LogError("Rewarded Load Failed: " + error);
+	}
 	void RewardedOnAdDisplayedEvent(LevelPlayAdInfo adInfo) { }
 	void RewardedOnAdDisplayFailedEvent(LevelPlayAdInfo adInfo, LevelPlayAdError error) { }
 	void RewardedOnAdRewardedEvent(LevelPlayAdInfo adInfo, LevelPlayReward adReward)
@@ -235,6 +247,8 @@ public class AdsManager : MonoBehaviour
 		string rewardName = adReward.Name;
 		int rewardAmount = adReward.Amount;
 		Debug.Log("Reward : " + rewardName + " Value " + rewardAmount);
+
+		onRewardSuccess?.Invoke();
 	}
 	void RewardedOnAdClosedEvent(LevelPlayAdInfo adInfo) { }
 	void RewardedOnAdClickedEvent(LevelPlayAdInfo adInfo) { }

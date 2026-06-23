@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
 			LoginManager.Instance.UserId,
 			level =>
 			{
+				LevelsManager.Instance.SetCurrentLevel(level);
 				UpdateSelectedMap(level);
 			});
 	}

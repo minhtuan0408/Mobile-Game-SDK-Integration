@@ -95,11 +95,37 @@ public class SelectMapPanel : MonoBehaviour
 	{
 		int index = scrollSnap.CurrentIndex;
 		LevelTile tile = tiles[index];
+
 		currentLevel = tile.Level;
+
 		FirebaseDataManager.Instance.SetCurrentLevel(
 			LoginManager.Instance.UserId,
 			currentLevel);
+
+		LevelsManager.Instance.SetCurrentLevel(currentLevel);
+
 		mainMenu.UpdateSelectedMap(currentLevel);
+
+		SelectMap(index);
+	}
+	public void OnclickWatchAds()
+	{
+		AdsManager.Instance.ShowRewardedAd(() =>
+		{
+			UnlockCurrentMap();
+		});
+	}
+	private void UnlockCurrentMap()
+	{
+		int index = scrollSnap.CurrentIndex;
+
+		unlockedLevels[index + 1] = true;
+
+		FirebaseDataManager.Instance.UnlockLevel(
+			LoginManager.Instance.UserId,
+			index + 1);
+
+		UpdateLevelUI();
 		SelectMap(index);
 	}
 }

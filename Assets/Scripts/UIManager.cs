@@ -128,14 +128,30 @@ public class UIManager : MonoBehaviour
             Manager.Boolean.GameStart = false;
         }
     }
-    public void PlayBtn()
-    {
-        EffectFade.SetActive(true);
-        (Instantiate(Level.Level1, Level.Level1.transform.position, Level.Level1.transform.rotation) as GameObject).transform.SetParent(LevelLocalisation.transform);
-        CurrentName = Level.Level1.gameObject.name + "(Clone)";
-        StartCoroutine(GameStart());
-    }
-    IEnumerator GameStart()
+	public void PlayBtn()
+	{
+		EffectFade.SetActive(true);
+
+		FirebaseDataManager.Instance.GetCurrentLevel(
+			LoginManager.Instance.UserId,
+			level =>
+			{
+				GameObject prefab =
+					LevelsManager.Instance.CurrentLevelPrefab;
+
+				GameObject obj = Instantiate(
+					prefab,
+					prefab.transform.position,
+					prefab.transform.rotation);
+
+				obj.transform.SetParent(LevelLocalisation.transform, false);
+
+				CurrentName = obj.name;
+
+				StartCoroutine(GameStart());
+			});
+	}
+	IEnumerator GameStart()
     {
         yield return new WaitForSeconds(0.7f);
         if(Checking == "")
